@@ -26,11 +26,7 @@ public class Ejer3 {
             JSONArray alumnos = (JSONArray) json.get("alumnos");
 
             //Crear HashMap para estadisticas
-            Map<String, Integer> e = new HashMap<>();
-            e.put("suspensos", 0);
-            e.put("aprobados", 0);
-            e.put("notables", 0);
-            e.put("sobresalientes", 0);
+            Map<Categoria, Integer> e = new HashMap<>();
 
             //Recorrer cada Alumno
             for (Object item : alumnos) {
@@ -57,23 +53,20 @@ public class Ejer3 {
                 Categoria cat;
 
                 if (media < 5) {
-                    cat = Categoria.SUSPENSO;
+                    cat = Categoria.Suspensos;
                 } else if (media < 7) {
-                    cat = Categoria.APROBADO;
+                    cat = Categoria.Aprobados;
                 } else if (media < 9) {
-                    cat = Categoria.NOTABLE;
+                    cat = Categoria.Notables;
                 } else {
-                    cat = Categoria.SOBRESALIENTE;
+                    cat = Categoria.Sobresalientes;
                 }
 
                 //Separador
                 System.out.println(nombre + " -> media = " + String.format("%.2f", media) + " | " + cat);
 
                 //Actualizar contador x Merge
-                e.merge(
-                        cat.name().toLowerCase() + "s",
-                        1,
-                        Integer::sum); //Lo suma, no es necs verificar
+                e.merge(cat, 1, Integer::sum); //Lo suma, no es necs verificar
 
                 System.out.println();
             }
@@ -81,11 +74,12 @@ public class Ejer3 {
             //Impresion final
             System.out.println("Estadisticas Finales:");
             System.out.println("------------------------");
-            System.out.println("Suspensos: " + e.get("suspensos"));
-            System.out.println("Aprobados: " + e.get("aprobados"));
-            System.out.println("Notables: " + e.get("notables"));
-            System.out.println("Sobresalientes: " + e.get("sobresalientes"));
+            System.out.println("Suspensos: " + e.get(Categoria.Suspensos));
+            System.out.println("Aprobados: " + e.get(Categoria.Aprobados));
+            System.out.println("Notables: " + e.get(Categoria.Notables));
+            System.out.println("Sobresalientes: " + e.get(Categoria.Sobresalientes));
             System.out.println();
+         
         
         //Sub-catch para ver si lo que falla es la ruta
         } catch (FileNotFoundException e) { 
@@ -98,9 +92,9 @@ public class Ejer3 {
     }
 
     enum Categoria {
-        SUSPENSO,
-        APROBADO,
-        NOTABLE,
-        SOBRESALIENTE
+        Suspensos,
+        Aprobados,
+        Notables,
+        Sobresalientes
     }
 }
