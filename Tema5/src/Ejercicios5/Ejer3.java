@@ -36,13 +36,13 @@ public class Ejer3 {
             for (Object item : alumnos) {
 
                 //Referir item
-                JSONObject alumno = (JSONObject) item;
+                JSONObject a = (JSONObject) item;
 
                 //Obtener nombre
-                String nombre = (String) alumno.get("nombre");
+                String nombre = (String) a.get("nombre");
 
                 //Otener notas
-                JSONArray notas = (JSONArray) alumno.get("notas");
+                JSONArray notas = (JSONArray) a.get("notas");
 
                 //Cacl la media
                 double suma = 0;
@@ -71,7 +71,7 @@ public class Ejer3 {
                 e.merge(
                         cat.name().toLowerCase() + "s",
                         1,
-                        Integer::sum);
+                        Integer::sum); //Lo suma, no es necs verificar
 
                 System.out.println();
             }
