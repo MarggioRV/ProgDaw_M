@@ -46,6 +46,8 @@ public class Ejer3 {
 
                 //Cacl la media
                 double suma = 0;
+
+                //Recorrer Notas
                 for (Object n : notas) {
                     suma += ((Number) n).doubleValue();
                 }

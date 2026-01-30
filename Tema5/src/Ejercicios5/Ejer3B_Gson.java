@@ -43,6 +43,8 @@ public class Ejer3B_Gson {
                 
                 //Calc Media
                 double suma = 0;
+
+                //Recorrer Notas
                 for (int n : a.notas) suma += n;
                 double media = suma / a.notas.length;
 
