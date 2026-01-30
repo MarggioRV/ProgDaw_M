@@ -22,15 +22,15 @@ public class Ejer3 {
             //Convertir a JSONObject
             JSONObject json = (JSONObject) obj;
 
-            //Obtener el array "alumnos" → JSONArray
+            //Obtener el array "alumnos" -> JSONArray
             JSONArray alumnos = (JSONArray) json.get("alumnos");
 
-            //Creacion de HashMap para las estadisticas
-            Map<String, Integer> estadisticas = new HashMap<>();
-            estadisticas.put("suspensos", 0);
-            estadisticas.put("aprobados", 0);
-            estadisticas.put("notables", 0);
-            estadisticas.put("sobresalientes", 0);
+            //Crear HashMap para estadisticas
+            Map<String, Integer> e = new HashMap<>();
+            e.put("suspensos", 0);
+            e.put("aprobados", 0);
+            e.put("notables", 0);
+            e.put("sobresalientes", 0);
 
             //Recorrer cada Alumno
             for (Object item : alumnos) {
@@ -68,7 +68,7 @@ public class Ejer3 {
                 System.out.println(nombre + " -> media = " + String.format("%.2f", media) + " | " + cat);
 
                 //Actualizar contador x Merge
-                estadisticas.merge(
+                e.merge(
                         cat.name().toLowerCase() + "s",
                         1,
                         Integer::sum);
@@ -79,10 +79,10 @@ public class Ejer3 {
             //Impresion final
             System.out.println("Estadisticas Finales:");
             System.out.println("------------------------");
-            System.out.println("Suspensos: " + estadisticas.get("suspensos"));
-            System.out.println("Aprobados: " + estadisticas.get("aprobados"));
-            System.out.println("Notables: " + estadisticas.get("notables"));
-            System.out.println("Sobresalientes: " + estadisticas.get("sobresalientes"));
+            System.out.println("Suspensos: " + e.get("suspensos"));
+            System.out.println("Aprobados: " + e.get("aprobados"));
+            System.out.println("Notables: " + e.get("notables"));
+            System.out.println("Sobresalientes: " + e.get("sobresalientes"));
             System.out.println();
         
         //Sub-catch para ver si lo que falla es la ruta
