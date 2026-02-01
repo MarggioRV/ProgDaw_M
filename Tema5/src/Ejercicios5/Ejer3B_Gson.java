@@ -86,5 +86,4 @@ public class Ejer3B_Gson {
         Notables, 
         Sobresalientes 
     }
-
 }
