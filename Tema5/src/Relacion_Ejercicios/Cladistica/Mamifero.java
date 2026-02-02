@@ -11,7 +11,7 @@ public class Mamifero extends Vertebrado {
 
     @Override
     public void desplazarse() {
-        System.out.println("Camina o corre, algunos vuelan");
+        System.out.println("Camina o corre, algunos vuelan"); //
     }
 
     @Override
