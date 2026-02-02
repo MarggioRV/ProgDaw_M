@@ -1,6 +1,6 @@
 package Actividades5.clases;
 
-public abstract class Coche2 implements Acciones{
+public class Coche2 implements Acciones{
 
     @Override
     public void EmetirDOnido() {

@@ -1,6 +1,6 @@
 package Actividades5.clases;
 
-public abstract class Avion implements Acciones {
+public  class Avion implements Acciones {
 
     @Override
     public void EmetirDOnido() {

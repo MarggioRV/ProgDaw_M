@@ -22,7 +22,7 @@ public class Perro extends Mamifero {
 
     @Override
     public String toString() {
-        return super.toString() + " -> de raza " + raza;
+        return "Perro [nombre=" + nombre + ", gestacion=" + gestacion + ", raza=" + raza + ", tipo_comida="
+                + tipo_comida + ", edad=" + edad + "]";
     }
-
 }

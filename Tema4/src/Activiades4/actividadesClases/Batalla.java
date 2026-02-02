@@ -10,7 +10,7 @@ public class Batalla {
     private ArrayList<Personaje> heroes;
     private ArrayList<Personaje> orcos;
     private int victoriasOrcos; //!!
-    private boolean meta; //!!
+    private boolean meta;  //!!
     
     //Constructor_Defecto
     public Batalla() {

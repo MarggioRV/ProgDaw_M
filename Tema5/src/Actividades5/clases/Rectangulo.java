@@ -1,49 +1,54 @@
 package Actividades5.clases;
 
 public class Rectangulo extends Figura {
-    protected double b;
-    protected double h;
+
+    //Atributos
+    protected double largo; //ancho es 3D
+    protected double alto;
+
+    //Constructores
 
     public Rectangulo() {
     }
 
-    public Rectangulo(double b, double h) {
-        this.b = b;
-        this.h = h;
+    public Rectangulo(double largo, double alto) {
+        this.largo = largo;
+        this.alto = alto;
     }
 
-    public Rectangulo(String color, double b, double h) {
+    public Rectangulo(String color, double largo, double alto) {
         super(color);
-        this.b = b;
-        this.h = h;
+        this.largo = largo;
+        this.alto = alto;
     }
 
-    public double getB() {
-        return b;
+    //Get y Set
+
+    public double getLargo() {
+        return largo;
     }
 
-    public void setB(double b) {
-        this.b = b;
+    public void setLargo(double largo) {
+        this.largo = largo;
     }
 
-    public double getH() {
-        return h;
+    public double getAlto() {
+        return alto;
     }
 
-    public void setH(double h) {
-        this.h = h;
+    public void setAlto(double alto) {
+        this.alto = alto;
     }
 
     @Override
     double area() {
         // TODO Auto-generated method stub
-        return 2*(h+b);
+        return  largo * alto;
     }
 
     @Override
     double perímetro() {
         // TODO Auto-generated method stub
-        return b*h;
+        return 2*largo + 2*alto;
     }
-
 }

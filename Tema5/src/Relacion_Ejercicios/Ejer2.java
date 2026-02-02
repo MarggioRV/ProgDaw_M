@@ -1,4 +1,4 @@
-package Relacion_Ejercicios5;
+package Relacion_Ejercicios;
 
 /*
  Lee el fichero heroes.json para obtener un formato 

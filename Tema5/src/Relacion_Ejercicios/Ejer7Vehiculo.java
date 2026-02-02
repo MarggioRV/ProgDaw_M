@@ -1,4 +1,4 @@
-package Relacion_Ejercicios5;
+package Relacion_Ejercicios;
 
 public abstract class Ejer7Vehiculo {
     protected String marca;

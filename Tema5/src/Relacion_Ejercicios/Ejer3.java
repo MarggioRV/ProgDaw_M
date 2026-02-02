@@ -1,4 +1,4 @@
-package Relacion_Ejercicios5;
+package Relacion_Ejercicios;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

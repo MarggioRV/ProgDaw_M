@@ -1,4 +1,4 @@
-package Relacion_Ejercicios5;
+package Relacion_Ejercicios;
 
 public class Ejer8Avion extends Ejer7Vehiculo implements Ejer8Volador {
     

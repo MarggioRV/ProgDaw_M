@@ -1,4 +1,4 @@
-package Relacion_Ejercicios5;
+package Relacion_Ejercicios;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

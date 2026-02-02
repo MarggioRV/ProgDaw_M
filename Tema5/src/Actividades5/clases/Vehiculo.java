@@ -18,9 +18,9 @@ public abstract class Vehiculo {
     }
 
     //Metodo Abstrato
-    abstract int velocidadMax();
+    public abstract int velocidadMax();
     
-    //Metodo Concreto: MostrarInfo() con Systema.out
+    //Metodo Concreto
     public void mostrarInfo() {
         System.out.println("Matricula: " + Matricula);
     }

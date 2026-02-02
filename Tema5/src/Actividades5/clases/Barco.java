@@ -1,6 +1,6 @@
 package Actividades5.clases;
 
-public abstract class Barco implements Acciones {
+public class Barco implements Acciones {
 
     @Override
     public void EmetirDOnido() {
@@ -11,7 +11,7 @@ public abstract class Barco implements Acciones {
     @Override
     public void Mover() {
         // TODO Auto-generated method stub
-        
+        System.out.println("El barco navega por el mar");
     }
     
 }

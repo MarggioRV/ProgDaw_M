@@ -4,16 +4,14 @@ public class Producto {
     protected int id;
     protected String nombre;
     protected double precio;
-    protected double precio_final;
     
     public Producto() {
     }
     
-    public Producto(int id, String nombre, double precio, double precio_final) {
+    public Producto(int id, String nombre, double precio) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
-        this.precio_final = precio_final;
     }
 
     public int getId() {
@@ -40,17 +38,15 @@ public class Producto {
         this.precio = precio;
     }
 
-    public double getPrecio_final() {
-        return precio_final;
+
+    //Func para Precio Final
+    public double calcPrecioFinal() {
+        return precio; //Por defecto, precioFinal = precio
     }
 
-    public void setPrecio_final(double precio_final) {
-        this.precio_final = precio_final + 1;
-    }
 
     @Override
     public String toString() {
-        return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", precio_final=" + precio_final
-                + "]";
+        return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", precio_final=" + calcPrecioFinal() + "]";
     }
 }
