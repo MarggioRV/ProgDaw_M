@@ -1,10 +1,10 @@
-// package Tema5.src;
+package Actividades5;
 
-// import java.io.BufferedReader;
-// import java.io.File;
-// import java.io.FileReader;
-// import java.io.FileWriter;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 // public class LecturaEscritura {
 //     private static final String FILE = "src/puntos.txt";
 //     public static void main(String[] args) {
@@ -35,18 +35,11 @@
 //     }
 // }
 
-package Actividades5;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class Prub4EscLect {
     private static final String FILE = "src/puntos.txt";
     public static void main(String[] args) {
-        // Datos para escribir en el archivo
+        
+        //Datos para escribir en el archivo
         String linea1 = "j4  |   2";
         String linea2 = "j3  |   5";
 

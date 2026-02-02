@@ -1,5 +1,5 @@
 package Actividades5;
 
-public class Prub1Escritura {
+public class Pag37Activ2 {
     
 }

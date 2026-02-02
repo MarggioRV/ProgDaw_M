@@ -1,4 +1,4 @@
-package Ejercicios5;
+package Relacion_Ejercicios5;
 
 /* 4. Crea una clase genérica Caja completa que almacene un valor de cualquier
 tipo y lo muestre. Por completa se refiere a que tiene su constructor, 

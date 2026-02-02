@@ -1,4 +1,4 @@
-package Ejercicios5;
+package Relacion_Ejercicios5;
 
 import java.util.ArrayList;
 

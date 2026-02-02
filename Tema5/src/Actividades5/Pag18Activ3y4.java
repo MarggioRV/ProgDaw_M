@@ -32,7 +32,7 @@ public class Pag18Activ3y4 {
             System.out.println("4. Salir");
             System.out.print("Elige una opción: ");
 
-            // Validar que la entrada sea un número entero
+            //Validar que la entrada sea un número entero
             while (!scanner.hasNextInt()) {
                 System.out.println("Error: Introduce un número válido.");
                 scanner.next(); //Limpiar el buffer
@@ -108,11 +108,10 @@ public class Pag18Activ3y4 {
             System.out.println("Error al insertar el alumno: " + e.getMessage());
         }
         scanner.close();
-
-        // Actividad 4 (Pag18)
     }
 
     // Actividad 4 (Pag18)
+    
     /*
      * modificar el nombre de un alumno tras pasar el ID.
      */

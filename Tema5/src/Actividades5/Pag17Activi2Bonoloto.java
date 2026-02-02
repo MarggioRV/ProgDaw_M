@@ -3,7 +3,7 @@ package Actividades5;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
-public class Actividad4Bonoloto {
+public class Pag17Activi2Bonoloto {
     public static void main(String[] args) {
 
         int[] BONOLOTO = {11, 12, 20};

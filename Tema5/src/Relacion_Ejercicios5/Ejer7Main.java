@@ -1,4 +1,4 @@
-package Ejercicios5;
+package Relacion_Ejercicios5;
 
 public class Ejer7Main {
     public static void main(String[] args) {
