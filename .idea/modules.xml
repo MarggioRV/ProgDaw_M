@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Tema6/PracticasDAO/Pag22Pract/Pag22Pract.iml" filepath="$PROJECT_DIR$/Tema6/PracticasDAO/Pag22Pract/Pag22Pract.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema6/ActividadesDAO/Pag25Activ/Pag25Activ.iml" filepath="$PROJECT_DIR$/Tema6/ActividadesDAO/Pag25Activ/Pag25Activ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema7/ActividadesDAO/Pag25Activ1/Pag25Activ1.iml" filepath="$PROJECT_DIR$/Tema7/ActividadesDAO/Pag25Activ1/Pag25Activ1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema6/ActividadesDAO/Pag26Activ1/Pag26Activ1.iml" filepath="$PROJECT_DIR$/Tema6/ActividadesDAO/Pag26Activ1/Pag26Activ1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Prac38Piezas/Prac38Piezas.iml" filepath="$PROJECT_DIR$/Prac38Piezas/Prac38Piezas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema7/PracticasDAO/PractPag22/PractPag22.iml" filepath="$PROJECT_DIR$/Tema7/PracticasDAO/PractPag22/PractPag22.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticaPag38/PracticaPag38.iml" filepath="$PROJECT_DIR$/PracticaPag38/PracticaPag38.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ProgDaw_M.iml" filepath="$PROJECT_DIR$/.idea/ProgDaw_M.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema7/TemaN/Tema.iml" filepath="$PROJECT_DIR$/Tema7/TemaN/Tema.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tema1/Tema1.iml" filepath="$PROJECT_DIR$/Tema1/Tema1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tema2/Tema2.iml" filepath="$PROJECT_DIR$/Tema2/Tema2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tema3/Tema3.iml" filepath="$PROJECT_DIR$/Tema3/Tema3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tema4/Tema4.iml" filepath="$PROJECT_DIR$/Tema4/Tema4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tema5/Tema5.iml" filepath="$PROJECT_DIR$/Tema5/Tema5.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tema6/Tema6.iml" filepath="$PROJECT_DIR$/Tema6/Tema6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema6/TemaN/TemaN.iml" filepath="$PROJECT_DIR$/Tema6/TemaN/TemaN.iml" />
     </modules>
   </component>
 </project>

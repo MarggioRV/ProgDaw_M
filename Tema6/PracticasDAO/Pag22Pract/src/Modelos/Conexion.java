@@ -1,11 +1,11 @@
-package Actividades;
+package Modelos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    private static final String URL = "jdbc:mysql://localhost:3307/nba";
+    private static final String URL = "jdbc:mysql://localhost:3307/daw";
     private static final String USUARIO = "root";
     private static final String PASSWORD = "M@rggio15xAlme25";
 

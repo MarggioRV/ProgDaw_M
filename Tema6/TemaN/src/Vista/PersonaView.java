@@ -1,9 +1,9 @@
 package Vista;
 
-import Modelos.Persona;
-
 import java.util.List;
 import java.util.Scanner;
+
+import Modelos.Persona;
 
 // public class PersonaView {
 //     public void mostrarPersonas(List<Persona> personas) {
