@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexion {
+public class ConexionPrub {
     private static final String URL = "jdbc:mysql://localhost:3307/nba";
     private static final String USUARIO = "root";
     private static final String PASSWORD = "M@rggio15xAlme25";
