@@ -7,42 +7,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlumnosDAO {
+public class AsignaturaDAO {
     
     // READ 
-    public List<Alumnos> listar() {
-        List<Alumnos> alumnos = new ArrayList<>();
-        String sql = "SELECT numMatricula, fecha_nac, nombre, ape1, ape2, telefono FROM Alumnos";
+    public List<Asignatura> listar() {
+        List<Asignatura> asignatura = new ArrayList<>();
+        String sql = "SELECT codAsignatura, nombre, numHoras FROM Asignatura";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                alumnos.add(new Alumnos(
-                    rs.getInt("numMatricula"),
-                    rs.getString("fecha_nac"),
+                asignatura.add(new Asignatura(
+                    rs.getInt("codAsignatura"),
                     rs.getString("nombre"),
-                    rs.getString("ape1"),
-                    rs.getString("ape2"),
-                    rs.getString("telefono")));
+                    rs.getInt("numHoras")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return alumnos;
+        return asignatura;
     }
 
 
     // CREATE
-    public void insertar(Alumnos a) {
-        String sql = "INSERT INTO Alumnos (numMatricula, fecha_nac, nombre, ape1, ape2, telefono) VALUES (?, ?)";
+    public void insertar(Asignatura a) {
+        String sql = "INSERT INTO Asignatura (codAsignatura, nombre, numHoras) VALUES (?, ?)";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(3, a.getNumMatricula());
-            ps.setString(1, a.getApe1());
-            ps.setString(1, a.getApe2());
-            ps.setString(1, a.getFecha_nacimiento());
-            ps.setString(1, a.getNombre());
-            ps.setString(1, a.getTelefono());
+            ps.setInt(1, a.getCodAsignatura());
+            ps.setString(2, a.getNombre());
+            ps.setInt(1, a.getNumHoras());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,16 +44,13 @@ public class AlumnosDAO {
     }
 
     // UPDATE
-    public void actualizar(Alumnos a) {
-        String sql = "UPDATE Alumnos SET numMatricula=?, fecha_nac=?, nombre=?, ape1=?, ape2=?, telefono=? WHERE numMatricula=?";
+    public void actualizar(Asignatura a) {
+        String sql = "UPDATE Asignatura SET codAsignatura=?, Nombre=?, numHoras=? WHERE numMatricula=?";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(3, a.getNumMatricula());
-            ps.setString(1, a.getApe1());
-            ps.setString(1, a.getApe2());
-            ps.setString(1, a.getFecha_nacimiento());
+            ps.setInt(3, a.getCodAsignatura());
             ps.setString(1, a.getNombre());
-            ps.setString(1, a.getTelefono());
+            ps.setInt(3, a.getNumHoras());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,7 +59,7 @@ public class AlumnosDAO {
 
     // DELETE
     public void eliminar(int codigo) {
-        String sql = "DELETE FROM Alumnos WHERE numMatricula=?";
+        String sql = "DELETE FROM Asignatura WHERE codAsignatura=?";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, codigo);

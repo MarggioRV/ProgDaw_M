@@ -3,14 +3,14 @@ package Controlador;
 import Modelos.*;
 import Vista.*;
 
-public class ProfesorController {
+public class AsignaturaController {
     
-    private ProfesorDAO dao;
-    private ProfesorView view;
+    private AsignaturaDAO dao;
+    private AsignaturaView view;
 
-    public ProfesorController() {
-        dao = new ProfesorDAO();
-        view = new ProfesorView();
+    public AsignaturaController() {
+        dao = new AsignaturaDAO();
+        view = new AsignaturaView();
     }
 
     public void iniciar() {
@@ -22,21 +22,21 @@ public class ProfesorController {
                 opcion = view.mostrarMenu();
                 switch (opcion) {
                     case 1:
-                        view.mostrarProfesor(dao.listar());
+                        view.mostrarAsig(dao.listar());
                         break;
                     case 2: {
-                        dao.insertar(view.pedirNuevoProfesor());
-                        view.mostrarMensaje("Profesor insertado");
+                        dao.insertar(view.pedirNuevaAsignatura());
+                        view.mostrarMensaje("Asg insertada");
                         break;
                     }
                     case 3: {
-                        dao.actualizar(view.pedirProfesorFichactualizar());
-                        view.mostrarMensaje("Profesor actualizado");
+                        dao.actualizar(view.pedirAsignaturaActualizar());
+                        view.mostrarMensaje("Asg actualizada");
                         break;
                     }
                     case 4: {
-                        dao.eliminar(view.pedirProfesorEliminar());
-                        view.mostrarMensaje("Profesor eliminado");
+                        dao.eliminar(view.pedirAsignaturaEliminar());
+                        view.mostrarMensaje("Asg eliminada");
                     }
                     case 0:
                         view.mostrarMensaje("Saliendo...");
