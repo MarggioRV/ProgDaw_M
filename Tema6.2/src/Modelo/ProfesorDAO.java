@@ -1,4 +1,4 @@
-package Modelos;
+package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,71 +8,82 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfesorDAO {
-    
-    // READ 
-    public List<Profesor> listar() {
-        List<Profesor> profesor = new ArrayList<>();
-        String sql = "SELECT numMatricula, fecha_nac, nombre, ape1, ape2, telefono FROM Alumnos";
+    public List<Profesor> listarProfes() {
+        List<Profesor> Profesores = new ArrayList<>();
+        String sql = "SELECT id, nif, nombre, apellido1, apellido2 FROM profesor";
+
         try (Connection conn = Conexion.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery()) {
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
             while (rs.next()) {
-                profesor.add(new Profesor(
-                    rs.getInt("numMatricula"),
-                    rs.getString("fecha_nac"),
-                    rs.getString("nombre"),
-                    rs.getString("ape1"),
-                    rs.getString("ape2"),
-                    rs.getString("telefono")));
+                Profesores.add(new Profesor(
+                        rs.getInt("id"),
+                        rs.getString("nif"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido1"),
+                        rs.getString("apellido2")
+                ));
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return profesor;
+
+        return Profesores;
     }
 
-
     // CREATE
-    public void insertar(Profesor p) {
-        String sql = "INSERT INTO Alumnos (numMatricula, fecha_nac, nombre, ape1, ape2, telefono) VALUES (?, ?)";
+    public void insertarProfe(Profesor p) {
+        String sql = "INSERT INTO profesor (id, nif, nombre, apellido1, apellido2) VALUES (?,?,?,?,?)";
+
         try (Connection conn = Conexion.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(3, p.getId());
-            ps.setString(1, p.getNombre());
-            ps.setString(1, p.getApe1());
-            ps.setString(1, p.getApe2());
-            ps.setString(1, p.getEspecialidad());
-            ps.setString(1, p.getTelefono());
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, p.getId());
+            ps.setString(2, p.getNif());
+            ps.setString(3, p.getNombre());
+            ps.setString(4, p.getApe1());
+            ps.setString(5, p.getApe2());
+
             ps.executeUpdate();
+            System.out.println("Registro insertado exitosamente");
+
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Error al insertar el registro: " + e.getMessage());
         }
     }
 
     // UPDATE
-    public void actualizar(Profesor p) {
-        String sql = "UPDATE Alumnos SET numMatricula=?, fecha_nac=?, nombre=?, ape1=?, ape2=?, telefono=? WHERE numMatricula=?";
+    public void actualizarProfe(Profesor p) {
+        String sql = "UPDATE profesor SET nif=?, nombre=?, apellido1=?, apellido2=? WHERE id=?";
+
         try (Connection conn = Conexion.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(3, p.getId());
-            ps.setString(1, p.getNombre());
-            ps.setString(1, p.getApe1());
-            ps.setString(1, p.getApe2());
-            ps.setString(1, p.getEspecialidad());
-            ps.setString(1, p.getTelefono());
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, p.getNif());
+            ps.setString(2, p.getNombre());
+            ps.setString(3, p.getApe1());
+            ps.setString(4, p.getApe2());
+            ps.setInt(5, p.getId());
+
             ps.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // DELETE
-    public void eliminar(int id) {
-        String sql = "DELETE FROM Alumnos WHERE numMatricula=?";
+    public void eliminarProfesor(int id) {
+        String sql = "DELETE FROM profesor WHERE id=?";
+
         try (Connection conn = Conexion.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
             ps.setInt(1, id);
             ps.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

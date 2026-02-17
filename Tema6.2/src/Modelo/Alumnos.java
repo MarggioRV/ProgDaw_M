@@ -1,43 +1,44 @@
-package Modelos;
+package Modelo;
 
 public class Alumnos {
+    protected int id;
+    protected String nif;
+    protected String grupo;
+    protected String nombre;
+    protected String apellido1;
+    protected String apellido2;
 
-    //Atributos
-
-    private int numMatricula;
-    private String fecha_nac;
-    private String nombre;
-    private String Ape1;
-    private String Ape2;
-    private String telefono;
-    
-    //Constructores
-
-    public Alumnos(int numMatricula, String fecha_nac, String nombre, String ape1, String ape2, String telefono) {
-        this.numMatricula = numMatricula;
-        this.fecha_nac = fecha_nac;
+    public Alumnos(int id, String nif, String grupo, String nombre, String apellido1, String apellido2) {
+        this.id = id;
+        this.nif = nif;
+        this.grupo = grupo;
         this.nombre = nombre;
-        Ape1 = ape1;
-        Ape2 = ape2;
-        this.telefono = telefono;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
     }
 
-    //Getter y Setters
-
-    public int getNumMatricula() {
-        return numMatricula;
+    public int getId() {
+        return id;
     }
 
-    public void setNumMatricula(int numMatricula) {
-        this.numMatricula = numMatricula;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getFecha_nacimiento() {
-        return fecha_nac;
+    public String getNif() {
+        return nif;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
-        this.fecha_nac = fecha_nacimiento;
+    public void setNif(String nif) {
+        this.nif = nif;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 
     public String getNombre() {
@@ -48,27 +49,31 @@ public class Alumnos {
         this.nombre = nombre;
     }
 
-    public String getApe1() {
-        return Ape1;
+    public String getApellido1() {
+        return apellido1;
     }
 
-    public void setApe1(String ape1) {
-        Ape1 = ape1;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
     }
 
-    public String getApe2() {
-        return Ape2;
+    public String getApellido2() {
+        return apellido2;
     }
 
-    public void setApe2(String ape2) {
-        Ape2 = ape2;
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    @Override
+    public String toString() {
+        return "Alumno{" +
+                "id=" + id +
+                ", nif='" + nif + '\'' +
+                ", grupo='" + grupo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                '}';
     }
 }
