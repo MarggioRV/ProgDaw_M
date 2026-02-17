@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.*;
-import Vista.Personas_Escuela_view;
+import Vista.*;
 
 public class Personas_Escuela_controller {
 
@@ -138,9 +138,6 @@ public class Personas_Escuela_controller {
                     practicaDAO.insertarPractica(view.pedirNuevaPractica());
                     break;
 
-                // ============================
-                // ELIMINAR ENTIDADES
-                // ============================
                 case 13:
                     aldao.eliminarAlumno(view.pedirIdAlumno());
                     break;
@@ -166,7 +163,7 @@ public class Personas_Escuela_controller {
                     break;
 
                 case 19:
-                    view.mostrarPracticasDiseNiadas(practicaDiseniadaDAO.ListarPracticasDiseniadas());
+                    view.mostrarPracticasDiseNiadas(practicaDiseniadaDAO.listarDisenos());
                     break;
 
                 case 20: {
@@ -206,7 +203,7 @@ public class Personas_Escuela_controller {
                     int idProf = view.pedirIdProfesor();
                     Profesor_Diseña_Practica encontrado = null;
 
-                    for (Profesor_Diseña_Practica pd : practicaDiseniadaDAO.ListarPracticasDiseniadas()) {
+                    for (Profesor_Diseña_Practica pd : practicaDiseniadaDAO.listarDisenos()) {
                         if (pd.getId_practica() == idP && pd.getId_profesor() == idProf) {
                             encontrado = pd;
                             break;
@@ -226,7 +223,7 @@ public class Personas_Escuela_controller {
                     break;
 
                 case 25:
-                    practicaDiseniadaDAO.insertarPracticaDiseniada(view.pedirPracticaDiseNiada());
+                    practicaDiseniadaDAO.insertarDiseno(view.pedirPracticaDiseNiada());
                     break;
 
                 case 26:
@@ -244,7 +241,7 @@ public class Personas_Escuela_controller {
                     break;
 
                 case 28:
-                    practicaDiseniadaDAO.eliminarPracticaDiseNiada(
+                    practicaDiseniadaDAO.eliminarDiseno(
                         view.pedirIdPractica(),
                         view.pedirIdProfesor()
                     );
