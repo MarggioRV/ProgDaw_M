@@ -4,7 +4,7 @@ import Modelo.*;
 import Vista.*;
 
 public class Personas_Escuela_controller {
-
+    
     private AlumnosDAO aldao;
     private ProfesorDAO profdao;
     private ExamenTeoricoDAO examdao;
