@@ -38,6 +38,17 @@ public class Personas_Escuela_controller {
         this.view = view;
     }
 
+    public Personas_Escuela_controller() {  
+        aldao = new AlumnosDAO();      
+        profdao = new ProfesorDAO();
+        examdao = new ExamenTeoricoDAO();
+        practicaDAO = new PracticaDAO();
+        examenHechoDAO = new Alumno_Hace_ExamenTDAO();
+        practicaHechaDAO = new Alumnos_Realiza_PracticaDAO();
+        practicaDiseniadaDAO = new Profesor_Diseña_PracticaDAO();
+        view = new Personas_Escuela_view();
+    }    
+
     public void iniciar() {
         int opcion;
 
