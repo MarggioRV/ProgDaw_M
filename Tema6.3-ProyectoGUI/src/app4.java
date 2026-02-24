@@ -1,3 +1,3 @@
-public class app4 {
+public class App4 {
     //Investigar como poner tu propio icono en en la ventana emergente
 }

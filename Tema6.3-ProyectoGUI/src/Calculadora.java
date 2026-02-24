@@ -22,7 +22,7 @@ public class Calculadora extends JFrame implements ActionListener {
         // Panel de botones
         JPanel panelBotones = new JPanel();
         panelBotones.setLayout(new GridLayout(4, 4, 5, 5));
-        String[] botones = { "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "C", "0", "=", "+" };
+        String[] botones = { "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "C", "0", "=", "+"};
     
         for (String texto : botones) {
             JButton boton = new JButton(texto);
@@ -75,7 +75,6 @@ public class Calculadora extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        // SwingUtilities.invokeLater(() -> new Calculadora());
         Calculadora calculadora1=new Calculadora();
     }
 }
