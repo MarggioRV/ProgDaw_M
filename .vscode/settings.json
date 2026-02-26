@@ -4,5 +4,9 @@
         "c:\\Users\\Marggio\\Downloads\\gson-2.13.1.jar",
         "c:\\Users\\Marggio\\Downloads\\json-simple-1.1.1.jar",
         "c:\\Users\\Marggio\\Downloads\\mysql-connector-j-9.5.0.jar"
+    ],
+    "java.project.sourcePaths": [
+        "Tema6.3-ProyectoGUI/src",
+        "Tema6.4-ProyectoGUI/src"
     ]
 }

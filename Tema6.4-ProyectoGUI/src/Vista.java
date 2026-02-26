@@ -1,21 +1,21 @@
-
 public class Vista extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Vista.class.getName());
 
-    /**
-     * Creates new form Vista
-     */
     public Vista() {
         initComponents();
     }
-                      
+           
+    //COMPONENTES + LISTERNERS NECESARIOS
     private void initComponents() {
 
+        //Base
         jPanel1 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jPanel2 = new javax.swing.JPanel();
+
+        //Textos e Imputs
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
         label3 = new java.awt.Label();
@@ -25,8 +25,16 @@ public class Vista extends javax.swing.JFrame {
         textField1 = new java.awt.TextField();
         textField7 = new java.awt.TextField();
         textField11 = new java.awt.TextField();
+
+        //Demás Componentes
         jRadioButton1 = new javax.swing.JRadioButton();
+        //Listener para exclusividad_Eleccion (M)
+        jRadioButton1.addActionListener(this::jRadioButton1ActionPerformed);
+        
         jRadioButton2 = new javax.swing.JRadioButton();
+        //Listener para exclusividad_Eleccion (F)
+        jRadioButton2.addActionListener(this::jRadioButton2ActionPerformed);
+
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -278,9 +286,18 @@ public class Vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }                                             
+    // Radio buttons exclusivos
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (jRadioButton1.isSelected()) {
+            jRadioButton2.setSelected(false);
+        }
+    }
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (jRadioButton2.isSelected()) {
+            jRadioButton1.setSelected(false);
+        }
+    }
 
     private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
@@ -302,11 +319,6 @@ public class Vista extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
