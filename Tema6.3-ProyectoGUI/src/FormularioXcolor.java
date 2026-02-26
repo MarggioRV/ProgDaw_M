@@ -38,8 +38,6 @@ public class FormularioXcolor extends JFrame implements ActionListener{
     
     public static void main(String[] ar) {
         FormularioXcolor formulario1=new FormularioXcolor();
-        formulario1.setBounds(10,20,300,200);
-        formulario1.setVisible(true);
-        formulario1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }    
 }
