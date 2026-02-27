@@ -146,7 +146,9 @@ public class Vista extends javax.swing.JFrame {
 
         jButton2.setText("Reiniciar");
 
-        jButton3.setText("E");
+        jButton3.setText("E"); 
+
+        textField11.setText(""); 
 
         // LAYOUT
 
