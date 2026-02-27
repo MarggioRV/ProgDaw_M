@@ -146,9 +146,9 @@ public class Vista extends javax.swing.JFrame {
 
         jButton2.setText("Reiniciar");
 
-        jButton3.setText("E"); 
+        jButton3.setText("E");
 
-        textField11.setText(""); 
+        textField11.setText("");
 
         // LAYOUT
 
@@ -325,9 +325,9 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel2.setText(""); //Imagen
+        jLabel2.setText(""); // Imagen
 
-        jLabel3.setText(""); //Imagen
+        jLabel3.setText(""); // Imagen
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -497,12 +497,28 @@ public class Vista extends javax.swing.JFrame {
     // Botón E:EXAMINAR
     private void seleccionarImagen() {
 
+        // Verificar términos
         if (!jCheckBox1.isSelected()) {
-            JOptionPane.showMessageDialog(this, "Debes aceptar los términos y condiciones.", "Aviso",
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Debes aceptar los términos y condiciones.",
+                    "Error",
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
 
+        // Verificar campos obligatorios
+        if (textField1.getText().trim().isEmpty() || textField7.getText().trim().isEmpty() | textArea1.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Campos obligatorios incompletos",
+                    "Error",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Selector de archivos
         ImageIcon icono = cargarDesdeArchivo();
 
         if (icono == null)
@@ -519,7 +535,7 @@ public class Vista extends javax.swing.JFrame {
             if (url.startsWith("http://") || url.startsWith("https://")) {
 
                 try {
-                    Image img = ImageIO.read(new URL(url)); 
+                    Image img = ImageIO.read(new URL(url));
                     if (img == null)
                         throw new Exception("Formato no válido");
 
@@ -594,6 +610,7 @@ public class Vista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(
                     this,
                     "Todos los campos son obligatorios");
+                    return;
         }
 
         String genero = jRadioButton1.isSelected() ? "Masculino" : "Femenino";
