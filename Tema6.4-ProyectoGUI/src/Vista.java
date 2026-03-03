@@ -1,7 +1,12 @@
 import java.awt.Image;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
 import java.net.URL;
+import java.net.URLConnection;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -531,24 +536,59 @@ public class Vista extends javax.swing.JFrame {
     private void cargarImagen(String url) {
         try {
 
-            // 1. Comprobar si es URL remota
+            // 1. Si es URL → cargar desde URL
             if (url.startsWith("http://") || url.startsWith("https://")) {
 
                 try {
-                    Image img = ImageIO.read(new URL(url));
-                    if (img == null)
+                    // the constuctor url(string is deprecated since version 20)
+                    // Image img = ImageIO.read(new URL(url));
+                    // Forma moderna: URI → URL
+                    URI uri = URI.create(url); //Crea un objeto URI a partir de un texto
+                    URL urlObj = uri.toURL(); //Convierte el objeto URI a uno URL
+
+                    //Abrir conexión con User-Agent 
+                    URLConnection conn = urlObj.openConnection(); //Clave para abrir la conexion HTTP(S)
+                    conn.setRequestProperty("User-Agent", "Mozilla/5.0"); //Simula un navegador a ojos del serv, ID universal
+                    
+                    //Detectar tipo MIME real (Su extension intresica)
+                    String extensionReal = conn.getContentType();
+                    boolean esGIF = extensionReal != null && extensionReal.contains("gif");
+
+                    //1.5. Si es un GIF → mantener animacion
+                    if (esGIF) {
+                        //Declaracion de flujo_salida para el guardado_datos
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        //try-with-resources: Se declara recuesos dentro, y se auto-cierra
+                        try (InputStream in = conn.getInputStream()){ //Abre el flujo, para leer los datos binarios rpta
+                            in.transferTo(baos); //Copia y traspasa todos los bytes de InputS a ByteAOS
+                        } 
+
+                        //Convierte los datos almc en un arreglo byte[]
+                        ImageIcon gifAnimado = new ImageIcon(baos.toByteArray());
+                        jLabel2.setIcon(gifAnimado); //Asign
+                        return; 
+                    }
+
+                    //Leer imagen desde InputStream, si no es un GIF, se usa ImageIO normal
+                    try (InputStream in = conn.getInputStream()) { 
+                        Image img = ImageIO.read(in);
+
+                        if (img == null) 
                         throw new Exception("Formato no válido");
 
-                    Image dimg = img.getScaledInstance(
+                        //Escalar
+                        Image dimg = img.getScaledInstance(
                             jLabel2.getWidth() > 0 ? jLabel2.getWidth() : 550,
                             jLabel2.getHeight() > 0 ? jLabel2.getHeight() : 350,
                             Image.SCALE_SMOOTH);
 
-                    jLabel2.setIcon(new ImageIcon(dimg));
-                    return;
+                        jLabel2.setIcon(new ImageIcon(dimg));
+                        return;
+                    }
 
                 } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(this,
+                    JOptionPane.showMessageDialog(
+                            this,
                             "No se encontró la URL o no es accesible:\n" + url,
                             "Error", JOptionPane.ERROR_MESSAGE);
                     return;
