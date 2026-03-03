@@ -1,5 +1,4 @@
 import java.awt.Image;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -569,7 +568,7 @@ public class Vista extends javax.swing.JFrame {
                         return; 
                     }
 
-                    //Leer imagen desde InputStream, si no es un GIF, se usa ImageIO normal
+                    //1.6. Leer imagen desde InputStream, si no es un GIF, se usa ImageIO normal
                     try (InputStream in = conn.getInputStream()) { 
                         Image img = ImageIO.read(in);
 
@@ -577,12 +576,9 @@ public class Vista extends javax.swing.JFrame {
                         throw new Exception("Formato no válido");
 
                         //Escalar
-                        Image dimg = img.getScaledInstance(
-                            jLabel2.getWidth() > 0 ? jLabel2.getWidth() : 550,
-                            jLabel2.getHeight() > 0 ? jLabel2.getHeight() : 350,
-                            Image.SCALE_SMOOTH);
-
-                        jLabel2.setIcon(new ImageIcon(dimg));
+                        ImageIcon escalada = escalarProporcional(img);
+                        //Rpta
+                        jLabel2.setIcon(escalada);
                         return;
                     }
 
@@ -605,19 +601,23 @@ public class Vista extends javax.swing.JFrame {
                 return;
             }
 
+            //2.5. Si es un GIF local → No ecalar
+            if (url.toLowerCase().endsWith("gif")) {
+                jLabel2.setIcon(new ImageIcon(url));
+                return;
+            }
+
+            //2.6. JPG/PNG locales, escalar
             Image img = ImageIO.read(archivo);
             if (img == null)
                 throw new Exception("Formato no válido");
 
-            Image dimg = img.getScaledInstance(
-                    jLabel2.getWidth() > 0 ? jLabel2.getWidth() : 550,
-                    jLabel2.getHeight() > 0 ? jLabel2.getHeight() : 350,
-                    Image.SCALE_SMOOTH);
-
-            jLabel2.setIcon(new ImageIcon(dimg));
+            ImageIcon escalada = escalarProporcional(img);
+            jLabel2.setIcon(escalada);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
+            JOptionPane.showMessageDialog(
+                    this,
                     "No se pudo cargar la imagen:\n" + e.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
