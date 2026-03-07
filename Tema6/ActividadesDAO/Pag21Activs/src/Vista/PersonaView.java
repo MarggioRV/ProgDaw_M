@@ -3,7 +3,7 @@ package Vista;
 import java.util.List;
 import java.util.Scanner;
 
-import Modelos.Persona;
+import Modelo.Persona;
 
 // public class PersonaView {
 //     public void mostrarPersonas(List<Persona> personas) {

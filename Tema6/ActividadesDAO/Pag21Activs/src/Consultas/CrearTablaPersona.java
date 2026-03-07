@@ -1,4 +1,5 @@
-package Actividades;
+package Consultas;
+import Modelo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class CrearTablaPersona {
                 "nombre VARCHAR(100), " +
                 "email VARCHAR(100)" +
                 ")";
-        try (Connection conn = ConexionPrub.getConnection();
+        try (Connection conn = Conexion.getConnection();
              Statement stmt = conn.createStatement()) {
             stmt.executeUpdate(sql);
             System.out.println("Tabla persona creada correctamente");

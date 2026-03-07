@@ -1,4 +1,5 @@
-package Actividades;
+package Consultas;
+import Modelo.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +25,7 @@ public class AppBD {
     
     public static void crearPersona(String nombre, String email) {
         String sql = "INSERT INTO persona (nombre, email) VALUES (?, ?)";
-        try (Connection conn = ConexionPrub.getConnection();
+        try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, nombre);
             ps.setString(2, email);
@@ -56,7 +57,7 @@ public class AppBD {
         public static void listarPersonas(String Procedencia,String equipo) {
         String sql = "SELECT codigo, nombre, Procedencia, Nombre_equipo FROM jugadores where Procedencia=? and Nombre_Equipo=?";
         try  {
-            Connection conn = ConexionPrub.getConnection();
+            Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, Procedencia);
                 ps.setString(2, equipo);
@@ -78,7 +79,7 @@ public class AppBD {
     public static void actulizarJugador() {
         String sql = "UPDATE Jugadores SET Procedencia = ? WHERE codigo = ?";
 
-        try (Connection conn = ConexionPrub.getConnection();
+        try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, "Spain");
             ps.setInt(2, 666);
@@ -93,7 +94,7 @@ public class AppBD {
 
     public static void NuevoRegistro(int codigo, String nombre, String Procedencia, String Altura, int Peso, String Posicion, String Nombre_Equipo) {
         String sql = "INSERT INTO jugadores (codigo, nombre, Procedencia, Altura, Peso, Posicion, Nombre_equipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        try (Connection conn = ConexionPrub.getConnection();
+        try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, codigo);
             ps.setString(2, nombre);

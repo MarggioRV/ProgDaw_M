@@ -3,7 +3,7 @@ package Controlador;
 // import java.util.List;
 
 // import Modelo.Persona;
-import Modelos.PersonaDAO;
+import Modelo.PersonaDAO;
 import Vista.PersonaView;
 
 // public class PersonaController {
