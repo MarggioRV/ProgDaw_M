@@ -7,17 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlumnosDAO {
+public class AlumnoDAO {
     
     // READ 
-    public List<Alumnos> listar() {
-        List<Alumnos> alumnos = new ArrayList<>();
+    public List<Alumno> listar() {
+        List<Alumno> alumnos = new ArrayList<>();
         String sql = "SELECT numMatricula, fecha_nac, nombre, ape1, ape2, telefono FROM Alumnos";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                alumnos.add(new Alumnos(
+                alumnos.add(new Alumno(
                     rs.getInt("numMatricula"),
                     rs.getString("fecha_nac"),
                     rs.getString("nombre"),
@@ -33,7 +33,7 @@ public class AlumnosDAO {
 
 
     // CREATE
-    public void insertar(Alumnos a) {
+    public void insertar(Alumno a) {
         String sql = "INSERT INTO Alumnos (numMatricula, fecha_nac, nombre, ape1, ape2, telefono) VALUES (?, ?)";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -46,7 +46,7 @@ public class AlumnosDAO {
     }
 
     // UPDATE
-    public void actualizar(Alumnos a) {
+    public void actualizar(Alumno a) {
         String sql = "UPDATE Alumnos SET numMatricula=?, fecha_nac=?, nombre=?, ape1=?, ape2=?, telefono=? WHERE numMatricula=?";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {

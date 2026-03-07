@@ -5,11 +5,11 @@ import Vista.*;
 
 public class AlumnosController {
     
-    private AlumnosDAO dao;
+    private AlumnoDAO dao;
     private AlumnosView view;
 
     public AlumnosController() {
-        dao = new AlumnosDAO();
+        dao = new AlumnoDAO();
         view = new AlumnosView();
     }
 
