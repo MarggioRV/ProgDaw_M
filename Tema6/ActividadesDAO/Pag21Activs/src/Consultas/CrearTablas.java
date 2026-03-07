@@ -1,5 +1,5 @@
-package ActividadER;
-
+package Consultas;
+import Modelo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
