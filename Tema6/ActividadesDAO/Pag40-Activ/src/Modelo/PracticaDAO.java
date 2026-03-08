@@ -1,43 +1,36 @@
 package Modelo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PracticaDAO {
-    
-    
+
     // READ
     public List<Practica> listarPracticas() {
-        List<Practica> practicas = new ArrayList<>();
-        String sql = "SELECT id, titulo, dificultad FROM practica";
+        List<Practica> lista = new ArrayList<>();
+        String sql = "SELECT id, titulo, dificultad FROM Practica";
 
         try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                practicas.add(new Practica(
+                lista.add(new Practica(
                         rs.getInt("id"),
                         rs.getString("titulo"),
                         rs.getString("dificultad")
                 ));
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) { e.printStackTrace(); }
 
-        return practicas;
+        return lista;
     }
-
 
     // CREATE
     public void insertarPractica(Practica p) {
-        String sql = "INSERT INTO practica (id, titulo, dificultad) VALUES (?,?,?)";
+        String sql = "INSERT INTO Practica (id, titulo, dificultad) VALUES (?,?,?)";
 
         try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -47,17 +40,13 @@ public class PracticaDAO {
             ps.setString(3, p.getDificultad());
 
             ps.executeUpdate();
-            System.out.println("Práctica insertada correctamente");
 
-        } catch (SQLException e) {
-            System.out.println("Error al insertar la práctica: " + e.getMessage());
-        }
+        } catch (SQLException e) { e.printStackTrace(); }
     }
-
 
     // UPDATE
     public void actualizarPractica(Practica p) {
-        String sql = "UPDATE practica SET titulo=?, dificultad=? WHERE id=?";
+        String sql = "UPDATE Practica SET titulo=?, dificultad=? WHERE id=?";
 
         try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -68,15 +57,12 @@ public class PracticaDAO {
 
             ps.executeUpdate();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) { e.printStackTrace(); }
     }
-
 
     // DELETE
     public void eliminarPractica(int id) {
-        String sql = "DELETE FROM practica WHERE id=?";
+        String sql = "DELETE FROM Practica WHERE id=?";
 
         try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -84,9 +70,6 @@ public class PracticaDAO {
             ps.setInt(1, id);
             ps.executeUpdate();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) { e.printStackTrace(); }
     }
-
 }
