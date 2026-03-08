@@ -54,7 +54,8 @@ public class EmpleadoDAO {
             ps.setString(4, e.getApe2());
             ps.setString(5, e.getTelefono());
             ps.setString(6, e.getDireccion());
-            ps.setString(7, e.getTipo().name()); // Enum → String
+            //Enum a String
+            ps.setString(7, e.getTipo().name()); 
 
             ps.executeUpdate();
 
@@ -76,7 +77,8 @@ public class EmpleadoDAO {
             ps.setString(3, e.getApe2());
             ps.setString(4, e.getTelefono());
             ps.setString(5, e.getDireccion());
-            ps.setString(6, e.getTipo().name()); // Enum → String
+            //Enum a String
+            ps.setString(6, e.getTipo().name()); 
             ps.setInt(7, e.getId());
 
             ps.executeUpdate();
