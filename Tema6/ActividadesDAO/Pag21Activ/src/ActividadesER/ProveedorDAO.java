@@ -1,5 +1,5 @@
-package ActividadER;
-
+package ActividadesER;
+import Modelo.*;
 import java.sql.*;
 
 public class ProveedorDAO {

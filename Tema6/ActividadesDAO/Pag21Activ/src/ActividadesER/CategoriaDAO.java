@@ -1,5 +1,6 @@
-package ActividadER;
+package ActividadesER;
 
+import Modelo.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,9 +36,9 @@ public class CategoriaDAO {
         }
     }
 
-    public static Conexion.Categoria listar(int id) {
+    public static Categoria listar(int id) {
         String sql = "SELECT * FROM categoria where codigo=?";
-        Conexion.Categoria nuevo=null;
+        Categoria nuevo=null;
         try{ 
             Connection conn = Conexion.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -47,7 +48,7 @@ public class CategoriaDAO {
                 System.out.println(
                     rs.getInt("codigo") + " - " + rs.getString("nombre")
                 );
-                nuevo=new Conexion.Categoria(rs.getInt("codigo"),rs.getString("nombre"));
+                nuevo=new Categoria(rs.getInt("codigo"),rs.getString("nombre"));
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -67,7 +68,7 @@ public class CategoriaDAO {
         }
     }
 
-    public static void actualizar(Conexion.Categoria objeto) {
+    public static void actualizar(Categoria objeto) {
         String sql = "UPDATE categoria SET nombre=? WHERE codigo=?";
         try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
