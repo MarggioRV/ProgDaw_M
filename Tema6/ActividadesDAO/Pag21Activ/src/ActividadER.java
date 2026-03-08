@@ -1,4 +1,5 @@
-import ActividadesER.*;
+// import ActividadesE.*;
+import ActividadesER.CategoriaDAO;
 
 public class ActividadER {
     public static void main(String[] args) {
