@@ -23,7 +23,8 @@ public class AlumnoDAO {
                     rs.getString("nombre"),
                     rs.getString("ape1"),
                     rs.getString("ape2"),
-                    rs.getString("telefono")));
+                    rs.getString("telefono")
+                ));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,16 +48,15 @@ public class AlumnoDAO {
 
     // UPDATE
     public void actualizar(Alumno a) {
-        String sql = "UPDATE Alumnos SET numMatricula=?, fecha_nac=?, nombre=?, ape1=?, ape2=?, telefono=? WHERE numMatricula=?";
+        String sql = "UPDATE Alumnos SET fecha_nac=?, nombre=?, ape1=?, ape2=?, telefono=? WHERE numMatricula=?";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setDate(1, a.getFecha_nacimiento());
-            ps.setString(2, a.getNombre());
-            ps.setString(3, a.getApe1());
-            ps.setString(4, a.getApe2());
-            ps.setString(5, a.getTelefono());
+            ps.setString(1, a.getNombre());
+            ps.setString(2, a.getApe1());
+            ps.setString(3, a.getApe2());
+            ps.setString(4, a.getTelefono());
             //WHERE
-            ps.setInt(6, a.getNumMatricula());
+            ps.setInt(5, a.getNumMatricula());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
