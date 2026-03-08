@@ -7,6 +7,7 @@
     ],
     "java.project.sourcePaths": [
         "Tema6/PracticasDAO/Pag22Pract1/src",
+        "Tema6/ActividadesDAO/Pag29Activ/src",
         "Tema6/ActividadesDAO/Pag28Activ/src",
         "Tema6/ActividadesDAO/Pag27Ativ/src",
         "Tema6/ActividadesDAO/Pag27Activ/src",
@@ -20,6 +21,6 @@
         "Tema6.4-ProyectoGUI/src",
         "Tema6.3-ProyectoGUI/src",
         "Tema6.2/src",
-        "Tema6/ActividadesDAO/Pag29Activ/src"
+        "Tema6/ActividadesDAO/Pag40-Activ/src"
     ]
 }

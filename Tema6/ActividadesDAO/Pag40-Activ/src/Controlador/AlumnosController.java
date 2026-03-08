@@ -1,15 +1,15 @@
 package Controlador;
 
-import Modelo.*;
-import Vista.*;
+import Modelo.AlumnosDAO;
+import Vista.AlumnosView;
 
 public class AlumnosController {
-    
-    private AlumnoDAO dao;
+
+    private AlumnosDAO dao;
     private AlumnosView view;
 
     public AlumnosController() {
-        dao = new AlumnoDAO();
+        dao = new AlumnosDAO();
         view = new AlumnosView();
     }
 
@@ -17,39 +17,43 @@ public class AlumnosController {
         int opcion;
 
         try {
-
             do {
                 opcion = view.mostrarMenu();
+
                 switch (opcion) {
                     case 1:
-                        view.mostrarAlumnos(dao.listar());
+                        view.mostrarAlumnos(dao.listarAlumnos());
                         break;
-                    case 2: {
-                        dao.insertar(view.pedirNuevoAlumno());
-                        view.mostrarMensaje("Cat insertada");
+
+                    case 2:
+                        dao.insertarAlumno(view.pedirNuevoAlumno());
+                        view.mostrarMensaje("Alumno insertado");
                         break;
-                    }
-                    case 3: {
-                        dao.actualizar(view.pedirAlumnoActualizar());
-                        view.mostrarMensaje("Cat actualizada");
+
+                    case 3:
+                        dao.actualizarAlumno(view.pedirAlumnoActualizar());
+                        view.mostrarMensaje("Alumno actualizado");
                         break;
-                    }
-                    case 4: {
-                        dao.eliminar(view.pedirNumMatriculaEliminar());
-                        view.mostrarMensaje("Cat eliminada");
-                    }
+
+                    case 4:
+                        dao.eliminarAlumno(view.pedirIdEliminar());
+                        view.mostrarMensaje("Alumno eliminado");
+                        break;
+
                     case 0:
                         view.mostrarMensaje("Saliendo...");
                         break;
+
                     default:
                         view.mostrarMensaje("Opción incorrecta");
                         break;
                 }
+
             } while (opcion != 0);
+
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
     }
-
 }
 

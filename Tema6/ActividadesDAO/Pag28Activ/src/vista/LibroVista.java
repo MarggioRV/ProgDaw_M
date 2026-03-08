@@ -1,12 +1,10 @@
-package vista;
+package Vista;
 
 import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import modelo.Ebook;
-import modelo.Libro;
-import modelo.Papel;
+import Modelo.*;
 
 public class LibroVista {
     private Scanner sc = new Scanner(System.in);
