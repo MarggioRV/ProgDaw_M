@@ -1,10 +1,12 @@
 package Modelo;
 
+import java.sql.Date;
+
 public class Alumno {
 
     //Atributos
     private int numMatricula;
-    private String fecha_nac;
+    private Date fecha_nac;
     private String nombre;
     private String Ape1;
     private String Ape2;
@@ -12,7 +14,7 @@ public class Alumno {
     
     //Constructores
 
-    public Alumno(int numMatricula, String fecha_nac, String nombre, String ape1, String ape2, String telefono) {
+    public Alumno(int numMatricula, Date fecha_nac, String nombre, String ape1, String ape2, String telefono) {
         this.numMatricula = numMatricula;
         this.fecha_nac = fecha_nac;
         this.nombre = nombre;
@@ -31,11 +33,11 @@ public class Alumno {
         this.numMatricula = numMatricula;
     }
 
-    public String getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nac;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nac = fecha_nacimiento;
     }
 
@@ -69,5 +71,11 @@ public class Alumno {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno [numMatricula=" + numMatricula + ", fecha_nac=" + fecha_nac + ", nombre=" + nombre + ", Ape1="
+                + Ape1 + ", Ape2=" + Ape2 + ", telefono=" + telefono + "]";
     }
 }

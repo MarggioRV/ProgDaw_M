@@ -1,5 +1,6 @@
 package Vista;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,8 +37,9 @@ public class AlumnosView {
         System.out.print("#Matricula: ");
         int numMatricula = sc.nextInt();
         sc.nextLine();
-        System.out.print("Fecha de Nacimiento: ");
-        String fecha_nac = sc.nextLine();
+        System.out.print("Nueva fecha_nacimiento (YYYY-MM-DD): ");
+        String fecha_nac_texto = sc.nextLine(); 
+        Date fecha_nac = Date.valueOf(fecha_nac_texto);
         System.out.print("Nombre: ");
         String nombre = sc.nextLine();
         System.out.print("Apellido1: ");
@@ -50,19 +52,27 @@ public class AlumnosView {
     }
 
     public Alumno pedirAlumnoActualizar() {
+        
         System.out.print("#Matricula a modificar: ");
         int numMatricula = sc.nextInt();
         sc.nextLine();
-        System.out.print("Nuevo fecha_nacimiento: ");
-        String nombre = sc.nextLine();
+        
+        System.out.print("Nueva fecha_nacimiento (YYYY-MM-DD): ");
+        String fecha_nac_texto = sc.nextLine(); 
+        Date fecha_nac = Date.valueOf(fecha_nac_texto);
+       
         System.out.print("Nuevo nombre: ");
-        String fecha_nac = sc.nextLine();
+        String nombre = sc.nextLine();
+        
         System.out.print("Nuevo apellido1: ");
         String Ape1 = sc.nextLine();
+        
         System.out.print("Nuevo apellido2: ");
         String Ape2 = sc.nextLine();
+        
         System.out.print("Nuevo telefono: ");
         String telefono = sc.nextLine();
+        
         return new Alumno(numMatricula, fecha_nac, nombre, Ape1, Ape2, telefono);
     }
 

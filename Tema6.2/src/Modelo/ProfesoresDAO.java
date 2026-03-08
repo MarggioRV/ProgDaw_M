@@ -7,34 +7,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfesorDAO {
-    public List<Profesor> listarProfes() {
-        List<Profesor> Profesores = new ArrayList<>();
-        String sql = "SELECT id, nif, nombre, apellido1, apellido2 FROM profesor";
 
-        try (Connection conn = Conexion.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+public class ProfesoresDAO {
 
-            while (rs.next()) {
-                Profesores.add(new Profesor(
-                        rs.getInt("id"),
-                        rs.getString("nif"),
-                        rs.getString("nombre"),
-                        rs.getString("apellido1"),
-                        rs.getString("apellido2")
-                ));
-            }
+// READ
+public List<Profesores> listarProfes() {
+    List<Profesores> Profesores = new ArrayList<>();
+    String sql = "SELECT id, nif, nombre, ape1, ape2 FROM Profesor";  
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+    try (Connection conn = Conexion.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+
+        while (rs.next()) {
+            Profesores.add(new Profesores(
+                    rs.getInt("id"),
+                    rs.getString("nif"),
+                    rs.getString("nombre"),
+                    rs.getString("ape1"),   
+                    rs.getString("ape2")    
+            ));
         }
 
-        return Profesores;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
 
+    return Profesores;
+}
     // CREATE
-    public void insertarProfe(Profesor p) {
+    public void insertarProfe(Profesores p) {
         String sql = "INSERT INTO profesor (id, nif, nombre, apellido1, apellido2) VALUES (?,?,?,?,?)";
 
         try (Connection conn = Conexion.getConnection();
@@ -55,7 +57,7 @@ public class ProfesorDAO {
     }
 
     // UPDATE
-    public void actualizarProfe(Profesor p) {
+    public void actualizarProfe(Profesores p) {
         String sql = "UPDATE profesor SET nif=?, nombre=?, apellido1=?, apellido2=? WHERE id=?";
 
         try (Connection conn = Conexion.getConnection();

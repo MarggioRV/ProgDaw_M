@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Profesor {
+public class Profesores {
 
     //Atributos
     private int id;
@@ -10,7 +10,7 @@ public class Profesor {
     private String ape2;
 
     //Constructor
-    public Profesor(int id, String nif, String nombre, String ape1, String ape2) {
+    public Profesores(int id, String nif, String nombre, String ape1, String ape2) {
         this.id = id;
         this.nif = nif;
         this.nombre = nombre;
@@ -56,5 +56,10 @@ public class Profesor {
 
     public void setApe2(String ape2) {
         this.ape2 = ape2;
+    }
+
+    @Override
+    public String toString() {
+        return "Profesor [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", ape1=" + ape1 + ", ape2=" + ape2 + "]";
     }
 }

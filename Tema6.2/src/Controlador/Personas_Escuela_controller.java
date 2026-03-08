@@ -6,7 +6,7 @@ import Vista.*;
 public class Personas_Escuela_controller {
     
     private AlumnosDAO aldao;
-    private ProfesorDAO profdao;
+    private ProfesoresDAO profdao;
     private ExamenTeoricoDAO examdao;
     private PracticaDAO practicaDAO;
 
@@ -18,7 +18,7 @@ public class Personas_Escuela_controller {
 
     public Personas_Escuela_controller(
             AlumnosDAO aldao,
-            ProfesorDAO profdao,
+            ProfesoresDAO profdao,
             ExamenTeoricoDAO examdao,
             PracticaDAO practicaDAO,
             Alumno_Hace_ExamenTDAO examenHechoDAO,
@@ -40,7 +40,7 @@ public class Personas_Escuela_controller {
 
     public Personas_Escuela_controller() {  
         aldao = new AlumnosDAO();      
-        profdao = new ProfesorDAO();
+        profdao = new ProfesoresDAO();
         examdao = new ExamenTeoricoDAO();
         practicaDAO = new PracticaDAO();
         examenHechoDAO = new Alumno_Hace_ExamenTDAO();
@@ -90,9 +90,9 @@ public class Personas_Escuela_controller {
 
                 case 6: {
                     int id = view.pedirIdProfesor();
-                    Profesor encontrado = null;
+                    Profesores encontrado = null;
 
-                    for (Profesor p : profdao.listarProfes()) {
+                    for (Profesores p : profdao.listarProfes()) {
                         if (p.getId() == id) {
                             encontrado = p;
                             break;

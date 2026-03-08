@@ -60,7 +60,7 @@ public class Personas_Escuela_view {
         alumnos.forEach(System.out::println);
     }
 
-    public void mostrarProfesores(List<Profesor> profesores) {
+    public void mostrarProfesores(List<Profesores> profesores) {
         profesores.forEach(System.out::println);
     }
 
@@ -78,7 +78,7 @@ public class Personas_Escuela_view {
         System.out.println(a);
     }
 
-    public void mostrarProfesor(Profesor p) {
+    public void mostrarProfesor(Profesores p) {
         System.out.println(p);
     }
 
@@ -174,19 +174,25 @@ public class Personas_Escuela_view {
         return new Alumnos(id, nif, grupo, nombre, apellido1, apellido2);
     }
 
-    public Profesor pedirNuevoProfesor() {
+    public Profesores pedirNuevoProfesor() {
+
         System.out.println("ID de Profesor: ");
         int id = sc.nextInt();
         sc.nextLine();
+
         System.out.println("NIF del Profesor: ");
         String nif = sc.nextLine();
+
         System.out.println("Nombre del Profesor: ");
         String nomb = sc.nextLine();
+
         System.out.println("1er Apellido: ");
         String ape1 = sc.nextLine();
+
         System.out.println("2do Apellido: ");
         String ape2 = sc.nextLine();
-        return new Profesor(id, nif, nomb, ape1, ape2);
+        
+        return new Profesores(id, nif, nomb, ape1, ape2);
     }
 
     public ExamenTeorico pedirExamenTeorico() {
