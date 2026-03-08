@@ -53,16 +53,15 @@ public class ProfesorDao {
 
     // UPDATE
     public void Profesor(Profesor a) {
-        String sql = "UPDATE Profesor SET id=?, nombre=?, ape1=?, ape2=?, especialidad=?, telefono=? WHERE id=?";
+        String sql = "UPDATE Profesor SET nombre=?, ape1=?, ape2=?, especialidad=?, telefono=? WHERE id=?";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, a.getId());
-            ps.setString(2, a.getNombre());
-            ps.setString(3, a.getApe1());
-            ps.setString(4, a.getApe2());
-            ps.setString(5, a.getEspecialidad());
-            ps.setString(6, a.getTelefono());
-            ps.setInt(7, a.getId());
+            ps.setString(1, a.getNombre());
+            ps.setString(2, a.getApe1());
+            ps.setString(3, a.getApe2());
+            ps.setString(4, a.getEspecialidad());
+            ps.setString(5, a.getTelefono());
+            ps.setInt(6, a.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

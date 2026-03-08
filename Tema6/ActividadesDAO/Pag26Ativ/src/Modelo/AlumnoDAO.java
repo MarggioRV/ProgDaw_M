@@ -50,12 +50,13 @@ public class AlumnoDAO {
         String sql = "UPDATE Alumnos SET numMatricula=?, fecha_nac=?, nombre=?, ape1=?, ape2=?, telefono=? WHERE numMatricula=?";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, a.getNumMatricula());
-            ps.setString(2, a.getApe1());
-            ps.setString(3, a.getApe2());
-            ps.setDate(4, a.getFecha_nacimiento());
-            ps.setString(5, a.getNombre());
-            ps.setString(6, a.getTelefono());
+            ps.setDate(1, a.getFecha_nacimiento());
+            ps.setString(2, a.getNombre());
+            ps.setString(3, a.getApe1());
+            ps.setString(4, a.getApe2());
+            ps.setString(5, a.getTelefono());
+            //WHERE
+            ps.setInt(6, a.getNumMatricula());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
