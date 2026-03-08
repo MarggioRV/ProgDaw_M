@@ -1,9 +1,8 @@
-package Modelos;
+package Modelo;
 
-public class Alumnos {
+public class Alumno {
 
     //Atributos
-
     private int numMatricula;
     private String fecha_nac;
     private String nombre;
@@ -13,7 +12,7 @@ public class Alumnos {
     
     //Constructores
 
-    public Alumnos(int numMatricula, String fecha_nac, String nombre, String ape1, String ape2, String telefono) {
+    public Alumno(int numMatricula, String fecha_nac, String nombre, String ape1, String ape2, String telefono) {
         this.numMatricula = numMatricula;
         this.fecha_nac = fecha_nac;
         this.nombre = nombre;

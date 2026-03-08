@@ -3,7 +3,7 @@ package Vista;
 import java.util.List;
 import java.util.Scanner;
 
-import Modelos.*;
+import Modelo.*;
 
 
 public class AlumnosView {
@@ -21,9 +21,9 @@ public class AlumnosView {
         return sc.nextInt();
     }
 
-    public void mostrarAlumnos(List<Alumnos> alumnos) {
+    public void mostrarAlumnos(List<Alumno> alumnos) {
         System.out.println("\nLISTADO:");
-        for (Alumnos a : alumnos) {
+        for (Alumno a : alumnos) {
             System.out.println(a.getNombre() 
                 + " - " + a.getApe1()
                 + " - " + a.getApe2()
@@ -31,7 +31,7 @@ public class AlumnosView {
         }
     }
 
-    public Alumnos pedirNuevoAlumno() {
+    public Alumno pedirNuevoAlumno() {
         sc.nextLine();
         System.out.print("#Matricula: ");
         int numMatricula = sc.nextInt();
@@ -46,10 +46,10 @@ public class AlumnosView {
         String Ape2 = sc.nextLine();
         System.out.print("telefono: ");
         String telefono = sc.nextLine();
-        return new Alumnos(numMatricula, fecha_nac, nombre, Ape1, Ape2, telefono);
+        return new Alumno(numMatricula, fecha_nac, nombre, Ape1, Ape2, telefono);
     }
 
-    public Alumnos pedirAlumnoActualizar() {
+    public Alumno pedirAlumnoActualizar() {
         System.out.print("#Matricula a modificar: ");
         int numMatricula = sc.nextInt();
         sc.nextLine();
@@ -63,7 +63,7 @@ public class AlumnosView {
         String Ape2 = sc.nextLine();
         System.out.print("Nuevo telefono: ");
         String telefono = sc.nextLine();
-        return new Alumnos(numMatricula, fecha_nac, nombre, Ape1, Ape2, telefono);
+        return new Alumno(numMatricula, fecha_nac, nombre, Ape1, Ape2, telefono);
     }
 
     public int pedirNumMatriculaEliminar() {
