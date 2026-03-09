@@ -22,7 +22,7 @@ public class PracticaController {
 
                 switch (opcion) {
                     case 1:
-                        view.mostrarPracticas(dao.listarPracticas());
+                        view.mostrarPracticass(dao.listarPracticas());
                         break;
 
                     case 2:

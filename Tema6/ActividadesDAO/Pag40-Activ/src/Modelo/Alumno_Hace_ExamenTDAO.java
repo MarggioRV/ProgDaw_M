@@ -4,9 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import Modelos.Alumno_Hace_ExamenT;
-import Modelos.Conexion;
-
 public class Alumno_Hace_ExamenTDAO {
 
     // READ

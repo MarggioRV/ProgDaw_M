@@ -20,7 +20,7 @@ public class PracticaView {
         return sc.nextInt();
     }
 
-    public void mostrarPracticas(List<Practica> lista) {
+    public void mostrarPracticass(List<Practica> lista) {
         System.out.println("\nLISTADO DE PRÁCTICAS:");
         for (Practica p : lista) {
             System.out.println(p.getId() + " - " + p.getTitulo() + " - " + p.getDificultad());

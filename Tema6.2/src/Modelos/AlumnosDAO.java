@@ -7,9 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Modelo.Alumnos;
-import Modelo.ConexionSuminis;
-
 public class AlumnosDAO {
 
     
@@ -17,7 +14,7 @@ public class AlumnosDAO {
     public List<Alumnos> listarAlumnos() {
         List<Alumnos> alumnos = new ArrayList<>();
         String sql = "SELECT id, nif, grupo, nombre, apellido1, apellido2 FROM alumno";
-        try (Connection conn = ConexionSuminis.getConnection();
+        try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -33,7 +30,7 @@ public class AlumnosDAO {
         String sql = "INSERT INTO alumno (id,nif, grupo, nombre,apellido1, apellido2) VALUES (?,?,?,?,?,?)";
 
         System.out.println(a);
-        try (Connection conn = ConexionSuminis.getConnection();
+        try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, a.getId());ps.setString(2,a.getNif());ps.setString(3,a.getGrupo());ps.setString(4,a.getNombre()); ps.setString(5, a.getApellido1());
             ps.setString(6, a.getApellido2());
@@ -48,7 +45,7 @@ public class AlumnosDAO {
     // UPDATE
     public void actualizarAlumno(Alumnos a) {
         String sql = "UPDATE alumno SET nif=?, grupo=?, nombre=?, apellido1=?, apellido2=? WHERE id=?";
-        try (Connection conn = ConexionSuminis.getConnection();
+        try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1,a.getNif());
             ps.setString(2,a.getGrupo());
@@ -64,7 +61,7 @@ public class AlumnosDAO {
     // DELETE
     public void eliminarAlumno(int id) {
         String sql = "DELETE FROM alumno WHERE id=?";
-        try (Connection conn = ConexionSuminis.getConnection();
+        try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id); ps.executeUpdate();
         } catch (SQLException e) { e.printStackTrace(); }

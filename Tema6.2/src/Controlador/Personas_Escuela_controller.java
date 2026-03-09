@@ -166,11 +166,11 @@ public class Personas_Escuela_controller {
                     break;
 
                 case 17:
-                    view.mostrarPracticasHechas(practicaHechaDAO.listarPracticasHechas());
+                    view.mostrarPracticasHechas(practicaHechaDAO.ListarPracticaHechos());
                     break;
 
                 case 18:
-                    view.mostrarExamenesHechos(examenHechoDAO.listarExamenesHechos());
+                    view.mostrarExamenesHechos(examenHechoDAO.ListarExamenesHechos());
                     break;
 
                 case 19:
@@ -182,7 +182,7 @@ public class Personas_Escuela_controller {
                     int idP = view.pedirIdPractica();
                     Alumnos_Realiza_Practica encontrado = null;
 
-                    for (Alumnos_Realiza_Practica ar : practicaHechaDAO.listarPracticasHechas()) {
+                    for (Alumnos_Realiza_Practica ar : practicaHechaDAO.ListarPracticaHechos()) {
                         if (ar.getId_alumno() == idA && ar.getId_practica() == idP) {
                             encontrado = ar;
                             break;
@@ -238,7 +238,7 @@ public class Personas_Escuela_controller {
                     break;
 
                 case 26:
-                    practicaHechaDAO.eliminarPracticaHecha(
+                    practicaHechaDAO.EliminarPracticaHecho(
                         view.pedirIdAlumno(),
                         view.pedirIdPractica()
                     );

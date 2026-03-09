@@ -3,10 +3,6 @@ package Modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import Modelos.Conexion;
-import Modelos.Practica;
-
 public class PracticaDAO {
 
     // READ

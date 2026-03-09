@@ -4,9 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import Modelos.Alumnos_Realiza_Practica;
-import Modelos.Conexion;
-
 public class Alumnos_Realiza_PracticaDAO {
 
     // READ

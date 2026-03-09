@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Alumnos_Realiza_PracticaDAO {
 
-    
     // READ (lista de Persona)
     public List<Alumnos_Realiza_Practica> ListarPracticaHechos() {
         List<Alumnos_Realiza_Practica> ahe = new ArrayList<>();
@@ -63,7 +62,7 @@ public class Alumnos_Realiza_PracticaDAO {
 
 
     // DELETE
-    public void eliminarPracticaHecho(int id_alumno, int id_practica) {
+    public void EliminarPracticaHecho(int id_alumno, int id_practica) {
         String sql = "DELETE FROM Alumnos_Realiza_Practica WHERE id_alumno=? AND id_practica=?";
         try (Connection conn = Conexion.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
