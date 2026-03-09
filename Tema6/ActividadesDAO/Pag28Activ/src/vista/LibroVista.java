@@ -7,7 +7,6 @@ import java.util.Scanner;
 import Modelo.Ebook;
 import Modelo.Libro;
 import Modelo.Papel;
-import Modelos.*;
 
 public class LibroVista {
     private Scanner sc = new Scanner(System.in);
