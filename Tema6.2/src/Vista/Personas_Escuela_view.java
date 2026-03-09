@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import Modelo.*;
+import Modelos.*;
 
 //Clase para toda la personas de las escuelas
 public class Personas_Escuela_view {

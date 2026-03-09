@@ -1,4 +1,4 @@
-package Modelo;
+package Modelos;
 
 public class Alumnos_Realiza_Practica {
     //Atributos

@@ -14,7 +14,7 @@ public class Profesor_Diseña_PracticaDAO {
         List<Profesor_Diseña_Practica> lista = new ArrayList<>();
         String sql = "SELECT id_practica, id_profesor, fecha FROM Profesor_Diseña_Practica";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
@@ -38,7 +38,7 @@ public class Profesor_Diseña_PracticaDAO {
     public void insertarDiseno(Profesor_Diseña_Practica p) {
         String sql = "INSERT INTO Profesor_Diseña_Practica (id_practica, id_profesor, fecha) VALUES (?,?,?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, p.getId_practica());
@@ -59,7 +59,7 @@ public class Profesor_Diseña_PracticaDAO {
         //Nota: Revisar las claves compuestas
         String sql = "UPDATE Profesor_Diseña_Practica SET fecha=? WHERE id_practica=? AND id_profesor=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, p.getFecha());
@@ -78,7 +78,7 @@ public class Profesor_Diseña_PracticaDAO {
     public void eliminarDiseno(int idPractica, int idProfesor) {
         String sql = "DELETE FROM Profesor_Diseña_Practica WHERE id_practica=? AND id_profesor=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idPractica);

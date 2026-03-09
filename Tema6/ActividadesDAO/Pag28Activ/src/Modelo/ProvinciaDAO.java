@@ -11,7 +11,7 @@ public class ProvinciaDAO {
         List<Provincia> lista = new ArrayList<>();
         String sql = "SELECT id, nombre FROM Provincia";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
@@ -31,7 +31,7 @@ public class ProvinciaDAO {
     public void insertar(Provincia p) {
         String sql = "INSERT INTO Provincia (id, nombre) VALUES (?,?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, p.getId());
@@ -46,7 +46,7 @@ public class ProvinciaDAO {
     public void actualizar(Provincia p) {
         String sql = "UPDATE Provincia SET nombre=? WHERE id=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, p.getNombre());
@@ -61,7 +61,7 @@ public class ProvinciaDAO {
     public void eliminar(int id) {
         String sql = "DELETE FROM Provincia WHERE id=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, id);

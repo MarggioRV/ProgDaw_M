@@ -1,16 +1,16 @@
 package Controlador;
 
 import Modelo.Profesor_Diseña_PracticaDAO;
-import Vista.ProfesorDiseñaPracticaView;
+import Vista.Profesor_Diseña_PracticaView;
 
-public class ProfesorDiseñaPracticaController {
+public class Profesor_Diseña_PracticaController {
 
     private Profesor_Diseña_PracticaDAO dao;
-    private ProfesorDiseñaPracticaView view;
+    private Profesor_Diseña_PracticaView view;
 
-    public ProfesorDiseñaPracticaController() {
+    public Profesor_Diseña_PracticaController() {
         dao = new Profesor_Diseña_PracticaDAO();
-        view = new ProfesorDiseñaPracticaView();
+        view = new Profesor_Diseña_PracticaView();
     }
 
     public void iniciar() {

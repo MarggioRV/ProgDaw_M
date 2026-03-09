@@ -1,4 +1,4 @@
-package Modelo;
+package Modelos;
 
 public class Practica {
     protected int id;

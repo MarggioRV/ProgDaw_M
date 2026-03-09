@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import Modelo.Profesor_Diseña_Practica;
 
-public class ProfesorDiseñaPracticaView {
+public class Profesor_Diseña_PracticaView {
 
     private Scanner sc = new Scanner(System.in);
 

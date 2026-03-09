@@ -3,6 +3,8 @@ package Modelo;
 import java.sql.*;
 import java.util.*;
 
+import Modelos.Conexion;
+
 public class CursoDAO {
 
     // Read

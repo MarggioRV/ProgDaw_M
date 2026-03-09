@@ -1,10 +1,9 @@
 package Consultas;
-import Modelo.*;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Modelo.Conexion;
 public class CrearTablaPersona {
     public static void main(String[] args) {
         // SQL para crear tabla persona
@@ -14,6 +13,7 @@ public class CrearTablaPersona {
                 "nombre VARCHAR(100), " +
                 "email VARCHAR(100)" +
                 ")";
+                
         try (Connection conn = Conexion.getConnection();
              Statement stmt = conn.createStatement()) {
             stmt.executeUpdate(sql);

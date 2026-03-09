@@ -4,10 +4,8 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import Modelo.*;
-
-
-public class AlumnosView {
+import Modelo.Alumno;
+public class AlumnoView {
     private Scanner sc = new Scanner(System.in);
 
     public int mostrarMenu() {

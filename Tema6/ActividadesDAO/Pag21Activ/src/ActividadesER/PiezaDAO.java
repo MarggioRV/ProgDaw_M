@@ -1,6 +1,7 @@
 package ActividadesER;
-import Modelo.*;
 import java.sql.*;
+
+import Modelo.ConexionSuminis;
 
 public class PiezaDAO {
 
@@ -9,7 +10,7 @@ public class PiezaDAO {
 
         String sql = "INSERT INTO pieza VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);
@@ -27,7 +28,7 @@ public class PiezaDAO {
     public void listar() {
         String sql = "SELECT * FROM pieza";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -44,7 +45,7 @@ public class PiezaDAO {
     public void actualizarPrecio(int codigo, double precio) {
         String sql = "UPDATE pieza SET precio=? WHERE codigo=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setDouble(1, precio);
@@ -59,7 +60,7 @@ public class PiezaDAO {
     public void borrar(int codigo) {
         String sql = "DELETE FROM pieza WHERE codigo=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);

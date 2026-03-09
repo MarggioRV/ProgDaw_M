@@ -1,16 +1,17 @@
 package ActividadesER;
 
-import Modelo.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Modelo.ConexionSuminis;
+
 public class CategoriaDAO {
      // CREATE
     public static void insertar(int codigo, String nombre) {
         String sql = "INSERT INTO categoria VALUES (?, ?)";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, codigo);
             ps.setString(2, nombre);
@@ -23,7 +24,7 @@ public class CategoriaDAO {
     // READ (SELECT)
     public static void listar() {
         String sql = "SELECT * FROM categoria";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery(sql)) {
             while (rs.next()) {
@@ -40,7 +41,7 @@ public class CategoriaDAO {
         String sql = "SELECT * FROM categoria where codigo=?";
         Categoria nuevo=null;
         try{ 
-            Connection conn = Conexion.getConnection();
+            Connection conn = ConexionSuminis.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -58,7 +59,7 @@ public class CategoriaDAO {
     // UPDATE
     public static void actualizar(int codigo, String nuevoNombre) {
         String sql = "UPDATE categoria SET nombre=? WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, nuevoNombre);
             ps.setInt(2, codigo);
@@ -70,7 +71,7 @@ public class CategoriaDAO {
 
     public static void actualizar(Categoria objeto) {
         String sql = "UPDATE categoria SET nombre=? WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, objeto.getNombre());
             ps.setInt(2, objeto.getCodigo());
@@ -83,7 +84,7 @@ public class CategoriaDAO {
     // DELETE
     public static void borrar(int codigo) {
         String sql = "DELETE FROM categoria WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, codigo);
             ps.executeUpdate();

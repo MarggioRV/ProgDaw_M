@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class ProfesoresDAO {
 
 // READ
@@ -15,7 +13,7 @@ public List<Profesores> listarProfes() {
     List<Profesores> Profesores = new ArrayList<>();
     String sql = "SELECT id, nif, nombre, ape1, ape2 FROM Profesor";  
 
-    try (Connection conn = Conexion.getConnection();
+    try (Connection conn = ConexionSuminis.getConnection();
          PreparedStatement ps = conn.prepareStatement(sql);
          ResultSet rs = ps.executeQuery()) {
 

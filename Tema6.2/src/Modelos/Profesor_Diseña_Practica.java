@@ -1,4 +1,4 @@
-package Modelo;
+package Modelos;
 
 public class Profesor_Diseña_Practica {
     protected int id_practica;

@@ -4,7 +4,10 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import Modelo.*;
+import Modelo.Ebook;
+import Modelo.Libro;
+import Modelo.Papel;
+import Modelos.*;
 
 public class LibroVista {
     private Scanner sc = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package Modelo;
+package Modelos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Alumno_Hace_ExamenTDAO {
+public class Alumno_Hace_ExamenTeDAO {
 
     // READ (lista de Persona)
     public List<Alumno_Hace_ExamenT> ListarExamenesHechos() {

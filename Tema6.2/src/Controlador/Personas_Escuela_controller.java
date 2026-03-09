@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.*;
+import Modelos.*;
 import Vista.*;
 
 public class Personas_Escuela_controller {
@@ -10,7 +10,7 @@ public class Personas_Escuela_controller {
     private ExamenTeoricoDAO examdao;
     private PracticaDAO practicaDAO;
 
-    private Alumno_Hace_ExamenTDAO examenHechoDAO;
+    private Alumno_Hace_ExamenTeDAO examenHechoDAO;
     private Alumnos_Realiza_PracticaDAO practicaHechaDAO;
     private Profesor_Diseña_PracticaDAO practicaDiseniadaDAO;
 
@@ -21,7 +21,7 @@ public class Personas_Escuela_controller {
             ProfesoresDAO profdao,
             ExamenTeoricoDAO examdao,
             PracticaDAO practicaDAO,
-            Alumno_Hace_ExamenTDAO examenHechoDAO,
+            Alumno_Hace_ExamenTeDAO examenHechoDAO,
             Alumnos_Realiza_PracticaDAO practicaHechaDAO,
             Profesor_Diseña_PracticaDAO practicaDiseniadaDAO,
             Personas_Escuela_view view) {
@@ -43,7 +43,7 @@ public class Personas_Escuela_controller {
         profdao = new ProfesoresDAO();
         examdao = new ExamenTeoricoDAO();
         practicaDAO = new PracticaDAO();
-        examenHechoDAO = new Alumno_Hace_ExamenTDAO();
+        examenHechoDAO = new Alumno_Hace_ExamenTeDAO();
         practicaHechaDAO = new Alumnos_Realiza_PracticaDAO();
         practicaDiseniadaDAO = new Profesor_Diseña_PracticaDAO();
         view = new Personas_Escuela_view();
@@ -166,11 +166,11 @@ public class Personas_Escuela_controller {
                     break;
 
                 case 17:
-                    view.mostrarPracticasHechas(practicaHechaDAO.ListarPracticaHechos());
+                    view.mostrarPracticasHechas(practicaHechaDAO.listarPracticasHechas());
                     break;
 
                 case 18:
-                    view.mostrarExamenesHechos(examenHechoDAO.ListarExamenesHechos());
+                    view.mostrarExamenesHechos(examenHechoDAO.listarExamenesHechos());
                     break;
 
                 case 19:
@@ -182,7 +182,7 @@ public class Personas_Escuela_controller {
                     int idP = view.pedirIdPractica();
                     Alumnos_Realiza_Practica encontrado = null;
 
-                    for (Alumnos_Realiza_Practica ar : practicaHechaDAO.ListarPracticaHechos()) {
+                    for (Alumnos_Realiza_Practica ar : practicaHechaDAO.listarPracticasHechas()) {
                         if (ar.getId_alumno() == idA && ar.getId_practica() == idP) {
                             encontrado = ar;
                             break;
@@ -238,7 +238,7 @@ public class Personas_Escuela_controller {
                     break;
 
                 case 26:
-                    practicaHechaDAO.eliminarPracticaHecho(
+                    practicaHechaDAO.eliminarPracticaHecha(
                         view.pedirIdAlumno(),
                         view.pedirIdPractica()
                     );

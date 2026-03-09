@@ -14,7 +14,7 @@ public class RecibeDAO {
         List<Recibe> lista = new ArrayList<>();
         String sql = "SELECT id_empleado, id_edicion FROM Recibe";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
@@ -37,7 +37,7 @@ public class RecibeDAO {
     public void insertar(Recibe r) {
         String sql = "INSERT INTO Recibe (id_empleado, id_edicion) VALUES (?,?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, r.getIdEmpleado());
@@ -55,7 +55,7 @@ public class RecibeDAO {
     public void eliminar(int idEmpleado, int idEdicion) {
         String sql = "DELETE FROM Recibe WHERE id_empleado=? AND id_edicion=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idEmpleado);

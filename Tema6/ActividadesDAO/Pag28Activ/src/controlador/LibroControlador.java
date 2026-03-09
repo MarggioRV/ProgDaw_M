@@ -1,7 +1,8 @@
 package Controlador;
 
+import Modelo.EbookDAO;
+import Modelo.PapelDAO;
 import Vista.LibroVista;
-import Modelo.*;
 
 public class LibroControlador {
 

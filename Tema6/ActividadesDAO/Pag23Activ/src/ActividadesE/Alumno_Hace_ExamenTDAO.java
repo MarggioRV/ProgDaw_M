@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Modelo.Conexion;
+import Modelos.Conexion;
 
 public class Alumno_Hace_ExamenTDAO {
 

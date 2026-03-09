@@ -16,6 +16,7 @@ public class Vista extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Vista.class.getName());
 
+    //Inicilizador
     public Vista() {
         initComponents();
         configurarEventos();
@@ -591,7 +592,7 @@ public class Vista extends javax.swing.JFrame {
                 }
             }
 
-            // 2. Si NO es URL → tratar como archivo local
+            //Si NO es URL → tratar como archivo local
             File archivo = new File(url);
 
             if (!archivo.exists()) {
@@ -601,13 +602,13 @@ public class Vista extends javax.swing.JFrame {
                 return;
             }
 
-            //2.5. Si es un GIF local → No ecalar
+            //Si es un GIF local → No ecalar
             if (url.toLowerCase().endsWith("gif")) {
                 jLabel2.setIcon(new ImageIcon(url));
                 return;
             }
 
-            //2.6. JPG/PNG locales, escalar
+            //JPG/PNG locales, escalar
             Image img = ImageIO.read(archivo);
             if (img == null)
                 throw new Exception("Formato no válido");
@@ -686,6 +687,7 @@ public class Vista extends javax.swing.JFrame {
         cargarImagen(imagenFinal);
     }
 
+    // EVENTOS AUTO-GENERADOS (SIN USO, SOLO POR SI SE TOCAN POR ERROR)
     private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -709,7 +711,7 @@ public class Vista extends javax.swing.JFrame {
         jButton3.addActionListener(e -> seleccionarImagen());
     }
 
-    // MAIN
+    // MAIN Autogenerado
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

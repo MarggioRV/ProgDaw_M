@@ -1,16 +1,16 @@
 package Controlador;
 
-import Modelo.*;
+import Modelo.AlumnoDAO;
 import Vista.*;
 
 public class AlumnosController1 {
     
     private AlumnoDAO dao;
-    private AlumnosView view;
+    private AlumnoView view;
 
     public AlumnosController1() {
         dao = new AlumnoDAO();
-        view = new AlumnosView();
+        view = new AlumnoView();
     }
 
     public void iniciar() {

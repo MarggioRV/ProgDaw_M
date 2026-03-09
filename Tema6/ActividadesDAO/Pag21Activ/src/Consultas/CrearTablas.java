@@ -1,9 +1,9 @@
 package Consultas;
-import Modelo.*;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import Modelo.ConexionSuminis;
 
 public class CrearTablas {
     public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class CrearTablas {
             ")";
 
         try {
-            Connection conn = Conexion.getConnection();
+            Connection conn = ConexionSuminis.getConnection();
              Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlCategoria);
             stmt.executeUpdate(sqlProveedor);

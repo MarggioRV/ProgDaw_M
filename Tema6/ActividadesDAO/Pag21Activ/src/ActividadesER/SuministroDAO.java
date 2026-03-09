@@ -1,13 +1,14 @@
 package ActividadesER;
-import Modelo.*;
 import java.sql.*;
+
+import Modelo.ConexionSuminis;
 
 public class SuministroDAO {
 
     public void insertar(int codProv, int codPieza, int cantidad, Date fecha) {
         String sql = "INSERT INTO suministra VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codProv);
@@ -24,7 +25,7 @@ public class SuministroDAO {
     public void listar() {
         String sql = "SELECT * FROM suministra";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -43,7 +44,7 @@ public class SuministroDAO {
     public void actualizarCantidad(int codProv, int codPieza, int cantidad) {
         String sql = "UPDATE suministra SET cantidad=? WHERE codigo_proveedor=? AND codigo_pieza=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, cantidad);
@@ -59,7 +60,7 @@ public class SuministroDAO {
     public void borrar(int codProv, int codPieza) {
         String sql = "DELETE FROM suministra WHERE codigo_proveedor=? AND codigo_pieza=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codProv);

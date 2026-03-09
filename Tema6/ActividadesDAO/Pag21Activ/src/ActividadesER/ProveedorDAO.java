@@ -1,13 +1,14 @@
 package ActividadesER;
-import Modelo.*;
 import java.sql.*;
+
+import Modelo.ConexionSuminis;
 
 public class ProveedorDAO {
 
     public void insertar(int codigo, String direccion, String ciudad, String provincia) {
         String sql = "INSERT INTO proveedor VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);
@@ -24,7 +25,7 @@ public class ProveedorDAO {
     public void listar() {
         String sql = "SELECT * FROM proveedor";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -41,7 +42,7 @@ public class ProveedorDAO {
     public void actualizar(int codigo, String nuevaDireccion) {
         String sql = "UPDATE proveedor SET direccion=? WHERE codigo=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, nuevaDireccion);
@@ -56,7 +57,7 @@ public class ProveedorDAO {
     public void borrar(int codigo) {
         String sql = "DELETE FROM proveedor WHERE codigo=?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = ConexionSuminis.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);
